@@ -13,7 +13,9 @@ var output = args[2].substring(0, args[2].lastIndexOf(".")) + ".html";
 fs.readFile(args[2], 'utf8', function(err, json){
 
 	if(err) throw err;
+	console.log(json);
 	json = JSON.parse(json);
+	console.log("Parsed")
 
 	jsml = handleArray(json, 0);
 
@@ -60,7 +62,7 @@ function handleTag(json, tabs){
 			start+=a;//add the attribute key
 			if(json.attributes[a] !== undefined && json.attributes[a] !== null){//if the attribute key has a value
 				start+="=";
-				start+=json.attributes[a];//add the attribute value
+				start+="\"" + json.attributes[a] + "\"";//add the attribute value
 			}
 		}
 	}
@@ -73,7 +75,7 @@ function handleTag(json, tabs){
 	var children = "";
 
 	if(json.children !== undefined){//if there are indeed children
-		children = handleArray(json.children, tabs);
+		children = handleArray(json.children, tabs) + "\n" + t;
 	}
 
 	return t + start + json.text + children + end;
