@@ -22,8 +22,8 @@ the JSML would look like
 
 `[
 	{
-		tag:"p"
-		text:"JSML is cool"
+		"tag":"p",
+		"text":"JSML is cool"
 	}
 ]`
 
@@ -44,18 +44,18 @@ JSML:
 
 `[
 	{
-		tag:"p"
-		attributes:{
-			id:"info"
+		"tag":"p"m
+		"attributes":{
+			"id":"info"
 		},
-		text:"Hello"
+		"text":"Hello"
 	},
 	{
-		tag:"p"
-		children:[
+		"tag":"p",
+		"children":[
 			{
-				tag:"b"
-				text:"World"
+				"tag":"b",
+				"text":"World"
 			}
 		]
 	}
