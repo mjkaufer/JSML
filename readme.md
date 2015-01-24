@@ -44,7 +44,7 @@ JSML:
 
 `[
 	{
-		"tag":"p"m
+		"tag":"p",
 		"attributes":{
 			"id":"info"
 		},
