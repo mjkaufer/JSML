@@ -8,14 +8,21 @@ if(args.length < 3){//no file specified
 	process.exit(1);//stop the program
 }
 
-fs.readFile('file', 'utf8', function(err, json){
+var output = args[2].substring(0, args[2].lastIndexOf(".")) + ".html";
+
+fs.readFile(args[2], 'utf8', function(err, json){
 
 	if(err) throw err;
 	json = JSON.parse(json);
 
 	jsml = handleArray(json, 0);
 
-	fs.writeFile("done.html", )
+	fs.writeFile(output, jsml, function(err){
+		if(err) throw err;
+
+		console.log("Done! Saved as",output);
+		process.exit(1);
+	})
 
 
 });
