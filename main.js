@@ -28,6 +28,8 @@ function handleArray(json, tabs){//handles an array
 		var element = json[ei];
 		body+= handleTag(element, tabs+1);
 	}
+
+	return body;
 }
 
 function handleTag(json, tabs){
@@ -36,7 +38,7 @@ function handleTag(json, tabs){
 		process.exit(1);
 	}
 
-	var t = "";
+	var t = "\n";//so we skip a  line for starters
 	for(var i = 0; i < tabs; i++){
 		t+="\t";
 	}
@@ -61,8 +63,12 @@ function handleTag(json, tabs){
 	if(json.text === undefined)//if there is no text
 		json.text = "";
 
-	if(json.children === undefined){//if no children were passed
-		return t + start + json.text + end;
+	var children = "";
+
+	if(json.children !== undefined){//if there are indeed children
+		children = handleArray(json.children, tabs);
 	}
+
+	return t + start + json.text + children + end;
 
 }
