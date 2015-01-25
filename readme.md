@@ -21,10 +21,15 @@ For a program that compiles to
 the JSML would look like
 
 `[
+
 	{
+
 		tag:"p",
+
 		text:"JSML is cool"
+
 	}
+
 ]`
 
 
@@ -34,44 +39,71 @@ Here is an example of nested elements.
 HTML:
 
 `<div>
+
 	<p id="info">Hello</p>
+
 	<p>
+
 		<b>World</b>
+
 	</p>
+
 </div>`
 
 JSML:
 
 `[
+
 	{
+
 		tag:"p",
+
 		attributes:{
+
 			"id":"info"
+
 		},
+
 		text:"Hello"
+
 	},
+
 	{
+
 		tag:"p",
+
 		children:[
+
 			{
+
 				tag:"b",
+
 				text:"World"
+
 			}
+
 		]
+
 	}
+
 ]`
 
 The reason we have to put stuff in an array is because, if we'd like to use multiple `p` tags, for instance, we could not do so without an array with traditional JSON. JSML seeks to conform to JSON standards. A JSML like
 
 `{
+
 	p:"Hello",
-	p:"World"	
+
+	p:"World"
+
 }`
 
 would turn into 
 
 `{
-	p:"World"	
+
+	p:"World"
+
 }`
 
 when read as a JSON file. Thus, everything stays in an array. It would be possible to make something which reads JSML files as a text file and parses it, but that is not JSML's intention. Feel free to fork the project, however, to implement this.
