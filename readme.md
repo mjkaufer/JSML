@@ -4,7 +4,7 @@ JSON Markup Language, or JSML, is an investigation into the effectiveness of cre
 
 ## Inspiration
 
-When using APIs, one lets out a groan when if they see the API outputs data in XML format. Nobody has this problem when writing HTML, however. Perhaps this is because writing a webpage in XML format is better than writing it in JSON. But, until now, there has been no way to tell. And thus, JSML was born. 
+When using APIs, one lets out a groan when if they see the API outputs data in XML format. JSON is expected, nowadays, when using an API. Nobody has this problem when writing HTML, however. Perhaps this is because writing a webpage in XML format is better than writing it in JSON. But, until now, there has been no way to tell. And thus, JSML was born.
 
 ## Use
 
