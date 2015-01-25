@@ -1,0 +1,49 @@
+[
+	{
+		tag:"head",
+		children:[
+			{
+				tag:"style",
+				text:"p{color:#cc0000;font-weight:bold;}"
+			}
+		]
+	},
+	{
+		tag:"body",
+		children:[
+			{
+				tag:"p",
+				attributes:{
+					id:"info"
+				},
+				text:"Hello"
+			},
+			{
+				tag:"p",
+				children:[
+					{
+						tag:"b",
+						text:"World"
+					}
+				]
+			},
+			{
+				tag:"div",
+				attributes:{
+					style:"border:solid red 1px;color:#00ff00;"
+				},
+				children:[
+					{
+						tag:"p",
+						text:"Awesome CSS"
+					},
+					{
+						tag:"h1",
+						text:"So cool!"
+					}
+				]
+			}
+		]
+	}
+
+]

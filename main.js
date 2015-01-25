@@ -15,10 +15,10 @@ fs.readFile(args[2], 'utf8', function(err, json){
 	if(err) throw err;
 	json = eval(json);//we call `eval` so we don't need to require quotes around tags
 
-	jsml = handleArray(json, 1);//gets rid of the first \n
+	jsml = handleArray(json, 0);//gets rid of the first \n
 
-	jsml = "<html>\n\t<body>" + jsml;
-	jsml += "\n\t</body>\n</html>"
+	jsml = "<html>" + jsml;
+	jsml += "\n</html>"
 
 	fs.writeFile(output, jsml, function(err){
 		if(err) throw err;
@@ -44,7 +44,6 @@ function handleArray(json, tabs){//handles an array
 
 function handleTag(json, tabs){
 	if(json.tag === undefined){
-		console.log(json);
 		throw "Need a tag!";//todo, error contains line number
 
 		process.exit(1);
