@@ -20,13 +20,13 @@ Each JSON object either has a child object which defines children, attributes, a
 
 For a program that compiles to 
 
-```
+```HTML
 <p>JSML is cool</p>
 ```
 
 the JSML would look like
 
-```
+```JavaScript
 [
 	{
 		tag:"p",
@@ -39,7 +39,7 @@ the JSML would look like
 
 HTML:
 
-```
+```HTML
 <div>
 	<p id="info">Hello</p>
 	<p>
@@ -50,7 +50,7 @@ HTML:
 
 JSML:
 
-```
+```JavaScript
 [
 	{
 		tag:"p",
@@ -73,7 +73,7 @@ JSML:
 
 ### Dynamic JSML
 
-```
+```JavaScript
 var name = "mjkaufer";
 
 [
