@@ -87,3 +87,9 @@ would turn into
 ```
 
 when read as a JSON file. Thus, everything stays in an array. It would be possible to make something which reads JSML files as a text file and parses it, but that is not JSML's intention. Feel free to fork the project, however, to implement this.
+
+## Contributing
+
+If you have something very major to contribute, submit an issue first. Otherwise, for any small fixes, feel free to send a pull request.
+
+If you'd like to find issues to work on, check `todo.md`.
