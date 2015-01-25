@@ -13,9 +13,7 @@ var output = args[2].substring(0, args[2].lastIndexOf(".")) + ".html";
 fs.readFile(args[2], 'utf8', function(err, json){
 
 	if(err) throw err;
-	console.log(json);
 	json = eval(json);//we call `eval` so we don't need to require quotes around tags
-	console.log("Parsed")
 
 	jsml = handleArray(json, 1);//gets rid of the first \n
 
@@ -25,7 +23,7 @@ fs.readFile(args[2], 'utf8', function(err, json){
 	fs.writeFile(output, jsml, function(err){
 		if(err) throw err;
 
-		console.log("Done! Saved as",output);
+		console.log("Written to",output);
 		process.exit(1);
 	})
 
