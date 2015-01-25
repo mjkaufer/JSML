@@ -16,6 +16,8 @@ To compile a JSML (a `.json` file) into an HTML file, run `node compile.js [file
 
 Each JSON object either has a child object which defines children, attributes, and content, or simply a string which defines the tag's content.
 
+### Simple Example
+
 For a program that compiles to 
 
 ```
@@ -33,9 +35,7 @@ the JSML would look like
 ]
 ```
 
-
-
-Here is an example of nested elements.
+### Nested Elements
 
 HTML:
 
@@ -71,7 +71,7 @@ JSML:
 ]
 ```
 
-Here's a super cool example of how to use variables inside of JSML
+### Dynamic JSML
 
 ```
 var name = "mjkaufer";
