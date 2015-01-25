@@ -14,7 +14,7 @@ fs.readFile(args[2], 'utf8', function(err, json){
 
 	if(err) throw err;
 	console.log(json);
-	json = JSON.parse(json);
+	json = JSON.parse(JSON.stringify(json));//we stringify first to add the "" around keys
 	console.log("Parsed")
 
 	jsml = handleArray(json, 0);
@@ -75,7 +75,7 @@ function handleTag(json, tabs){
 	var children = "";
 
 	if(json.children !== undefined){//if there are indeed children
-		children = handleArray(json.children, tabs) + "\n" + t;
+		children = handleArray(json.children, tabs) + t;
 	}
 
 	return t + start + json.text + children + end;
