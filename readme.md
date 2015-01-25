@@ -12,7 +12,7 @@ This isn't meant to overtake web design as we know it. It's more of a proof of c
 
 To compile a JSML (a `.json` file) into an HTML file, run `node compile.js [filename]`. Eventually, this will be npm'd, and there'll be a command we can run instead but, until now, we'll just do things the normal way.
 
-## Syntax
+## Examples & Syntax
 
 Each JSON object either has a child object which defines children, attributes, and content, or simply a string which defines the tag's content.
 
