@@ -10,7 +10,7 @@ This isn't meant to overtake web design as we know it. It's more of a proof of c
 
 ## Use
 
-To compile a JSML (a `.json` file) into an HTML file, run `node compile.js [filename]`. Eventually, this will be npm'd, and there'll be a command we can run instead but, until now, we'll just do things the normal way.
+To compile a JSML (a `.json` file) into an HTML file, run `node main.js [filename]`. Eventually, this will be npm'd, and there'll be a command we can run instead but, until now, we'll just do things the normal way.
 
 ## Examples & Syntax
 
