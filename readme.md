@@ -6,6 +6,8 @@ JSON Markup Language, or JSML, is an investigation into the effectiveness of cre
 
 When using APIs, one lets out a groan when if they see the API outputs data in XML format. JSON is expected, nowadays, when using an API. Nobody has this problem when writing HTML, however. Perhaps this is because writing a webpage in XML format is better than writing it in JSON. But, until now, there has been no way to tell. And thus, JSML was born.
 
+This isn't meant to overtake web design as we know it. It's more of a proof of concept. However, JavaScript code can actually be executed within the JSML file, which is kind of neat. One could make counters, dynamic variables, etc. The possibilities are unexplored and endless!
+
 ## Use
 
 To compile a JSML (a `.json` file) into an HTML file, run `node compile.js [filename]`. Eventually, this will be npm'd, and there'll be a command we can run instead but, until now, we'll just do things the normal way.
@@ -69,24 +71,20 @@ JSML:
 ]
 ```
 
-The reason we have to put stuff in an array is because, if we'd like to use multiple `p` tags, for instance, we could not do so without an array with traditional JSON. JSML seeks to conform to JSON standards. A JSML like
+Here's a super cool example of how to use variables inside of JSML
 
 ```
-{
-	p:"Hello",
-	p:"World"	
-}
+var name = "mjkaufer";
+
+[
+	{
+		tag:"h1",
+		text:name + " - it works!!"
+	}
+]
 ```
 
-would turn into 
-
-```
-{
-	p:"World"	
-}
-```
-
-when read as a JSON file. Thus, everything stays in an array. It would be possible to make something which reads JSML files as a text file and parses it, but that is not JSML's intention. Feel free to fork the project, however, to implement this.
+Basically, any JavaScript can be run above the first `[` tag, or before the JSML array is initialized. Any JavaScript which *does not produce an output* can be run anywhere. For instance, `var name = "mjkaufer"` is ok to use wherever, but something like `console.log("Matthew")` is only ok before the JSML array is initialized.
 
 ## Contributing
 

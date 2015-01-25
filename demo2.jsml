@@ -1,0 +1,8 @@
+var name = "mjkaufer;
+
+[
+	{
+		tag:"h1",
+		text:name + " - it works!!"
+	}
+]
