@@ -2,7 +2,7 @@
 
 *v1.0.0*
 
-JSON Markup Language, or JSML, is an investigation into the effectiveness of creating webpages in JSON.
+JSON Markup Language Compiler, or JSML, is an investigation into the effectiveness of creating webpages in JSON.
 
 ## Inspiration
 
@@ -12,7 +12,7 @@ This isn't meant to overtake web design as we know it. It's more of a proof of c
 
 ## Use
 
-To compile a JSML (a `.jsml` file) into an HTML file, run `node main.js [filename]`. Eventually, this will be npm'd, and there'll be a command we can run instead but, until now, we'll just do things the normal way.
+To compile a JSML (a `.jsml` file) into an HTML file, run `jsmlc -c [filename]`.
 
 ## Examples & Syntax
 
@@ -87,6 +87,64 @@ var name = "mjkaufer";
 ```
 
 Basically, any JavaScript can be run above the first `[` tag, or before the JSML array is initialized. Any JavaScript which *does not produce an output* can be run anywhere. For instance, `var name = "mjkaufer"` is ok to use wherever, but something like `console.log("Matthew")` is only ok before the JSML array is initialized.
+
+### Inline text
+
+```HTML
+<div>
+	This is <strong>Bold.</strong>
+</div>
+```
+
+```JavaScript
+var name = "mjkaufer";
+
+[
+	"This is This is",
+	{
+		tag: "strong",
+		text: "Bold."
+	}
+]
+```
+
+If you use a string instead of an object within an array, it will be directly inserted into the parent.
+
+### Short names
+
+```HTML
+<div>
+	<ul>
+		<li>This is one paragraph.</li>
+	</ul>
+	<a href="google.com">And this is a link.</a>
+</div>
+```
+
+```JavaScript
+var name = "mjkaufer";
+
+[
+	{
+		t: "ul",
+		c: [
+			{
+				t: "li",
+				T: "This is one paragraph."
+			}
+		]
+	},
+	{
+		t: "a",
+		a: [
+			"href": "google.com"
+		],
+		T: "And this is a link."
+	}
+]
+```
+
+`t` is short for `tag`, `c` for `children`, `T` for `text` and `a` for `attributes`. If bother were to be specified, the longer one would be chosen.
 
 ## Contributing
 

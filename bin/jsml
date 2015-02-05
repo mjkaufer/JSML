@@ -68,36 +68,35 @@ function handleArray(json, tabs) {
 	return body;
 }
 
-function handleTag(json) {
+function handleTag(json, tabs) {
 	if (!json.tag && !json.t) {
 		console.error("Need a tag.");
 		process.exit(1);
 	}
 
+	// Tabs
+	var t = '\n'+(Array(tabs+1).join('\t'));
+
 	//it will be what we concatenate to our elements to make it look all pretty & indented
 
-	var start = "\n<" + (json.tag || json.t);
+	var start = "<" + (json.tag || json.t);
 
 	if (json.attributes || !json.a) { // check if attributes are supplied
-		for(var a in (json.attributes || json.a)) {
-			start+=" ";
-
-			start+=a;//add the attribute key
-			if (!json.attributes[a] && !json.as[a])
-				start+="=\"" + (json.attributes[a] || json.as[a]) + "\""; // add the attribute value
-		}
+		for(var a in json.attributes)
+			if (json.attributes[a])
+				start+=" "+a+"=\"" + json.attributes[a] + "\""; // add the attribute value
+		for(var a in json.a)
+			if (json.a[a])
+				start+=" "+a+"=\"" + json.a[a] + "\""; // add the attribute value
 	}
-
 	start+=">"; // append to the front
+
 	var end = "</" + (json.tag || json.t) + ">";
 
-	if (!json.text && !json.T) // if there is no text
-		json.text = json.T = "";
-
 	var children = "";
-	if (!json.children || !json.c) {//if there are indeed children
-		children = handleArray((json.children || json.c));
+	if (json.children || json.c) {//if there are indeed children
+		children = handleArray((json.children || json.c), tabs)+t;
 	}
 
-	return start + (json.text || json.T) + children + end;
+	return t + start + (json.text || json.T || "") + children + end;
 }

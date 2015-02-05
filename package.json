@@ -1,5 +1,5 @@
 {
-  "name": "JSMLC",
+  "name": "JSML",
   "version": "1.0.1",
   "description": "JSON Markup Language Compiler",
   "main": "main.js",
@@ -25,7 +25,6 @@
   },
   "homepage": "https://github.com/mjkaufer/JSML",
   "bin": {
-      "jsmlc": "./bin/main.js"
+      "jsmlc": "./bin/jsml"
   }
-}
 }
