@@ -33,7 +33,35 @@ parser.on('compile', function(opt, val) {
 		process.exit(1);
 	}
 
-	fs.readFile(val, 'utf8', function(err, json) {
+	compile(val);
+
+});
+
+parser.on(2, function(val){//default input
+	input = val;
+
+
+
+	var endIndex = Math.max(input.lastIndexOf(".jsml"), input.length)
+	output = input.substring(0, endIndex) + ".html";
+	// console.log("0", val)
+});
+
+parser.on(3, function(val){
+	output = val;
+	compile(input);
+	// console.log("1", val)
+})
+
+
+parser.on(function(opt) {
+    console.log('Error - see `jsml --help`');
+});
+
+parser.parse(process.argv);
+
+function compile(infile){
+	fs.readFile(infile, 'utf8', function(err, json) {
 		if (err) {
 			console.error(err);
 			process.exit(1);
@@ -48,28 +76,29 @@ parser.on('compile', function(opt, val) {
 		if (!output) console.log(jsml);
 		else fs.writeFile(output, jsml, function(err) {
 			if (err) console.error(err);
+			else
+				console.log("Done compiling " + input + " - saved as " + output)
 		});
 	});
-});
-
-parser.parse(process.argv);
+}
 
 function handleArray(json, tabs) {
 	var body = "";
 
 	for (var ei in json) {
 		var element = json[ei];
-		if (typeof element == 'string' || element instanceof String)
-			body += element;
-		else
-			body += handleTag(element, tabs+1);
+		body += handleTag(element, tabs+1);
 	}
 
 	return body;
 }
 
+function isString(el){
+	return typeof el == 'string' || el instanceof String
+}
+
 function handleTag(json, tabs) {
-	if (!json.tag && !json.t) {
+	if (!isString(json) && (!json.tag && !json.t)){
 		console.error("Need a tag.");
 		process.exit(1);
 	}
@@ -77,6 +106,8 @@ function handleTag(json, tabs) {
 	// Tabs
 	var t = '\n'+(Array(tabs+1).join('\t'));
 
+	if (isString(json))
+		return t + json;
 	//it will be what we concatenate to our elements to make it look all pretty & indented
 
 	var start = "<" + (json.tag || json.t);
