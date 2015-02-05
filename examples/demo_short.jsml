@@ -1,0 +1,52 @@
+[
+	{
+		t:"head",
+		c:[
+			{
+				t:"style",
+				T:"p{color:#cc0000;font-weight:bold;}"
+			}
+		]
+	},
+	{
+		t:"body",
+		c:[
+			{
+				t:"p",
+				a:{
+					id:"info"
+				},
+				T:"Hello"
+			},
+			{
+				t:"p",
+				c:[
+					{
+						t:"b",
+						T:"World"
+					}
+				]
+			},
+			"Just some text",
+			{t:"em",T:"Whatever"},
+			"Me.me",
+			{
+				t:"div",
+				a:{
+					style:"border:solid red 1px;color:#00ff00;"
+				},
+				c:[
+					{
+						t:"p",
+						T:"Awesome CSS"
+					},
+					{
+						t:"h1",
+						T:"So cool!"
+					}
+				]
+			}
+		]
+	}
+
+]
