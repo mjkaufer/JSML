@@ -1,7 +1,5 @@
 # JSML
 
-*v1.0.0*
-
 JSON Markup Language, or JSML, is an investigation into the effectiveness of creating webpages in JSON.
 
 ## Inspiration
@@ -12,7 +10,7 @@ This isn't meant to overtake web design as we know it. It's more of a proof of c
 
 ## Use
 
-To compile a JSML (a `.jsml` file) into an HTML file, run `node main.js [filename]`. Eventually, this will be npm'd, and there'll be a command we can run instead but, until now, we'll just do things the normal way.
+To compile a JSML (a `.json` file) into an HTML file, run `node main.js [filename]`. Eventually, this will be npm'd, and there'll be a command we can run instead but, until now, we'll just do things the normal way.
 
 ## Examples & Syntax
 
@@ -20,7 +18,7 @@ Each JSON object either has a child object which defines children, attributes, a
 
 ### Simple Example
 
-For a program that compiles to
+For a program that compiles to 
 
 ```HTML
 <p>JSML is cool</p>
@@ -92,4 +90,4 @@ Basically, any JavaScript can be run above the first `[` tag, or before the JSML
 
 If you have something very major to contribute, submit an issue first. Otherwise, for any small fixes, feel free to send a pull request.
 
-If you'd like to find issues to work on, check [`TODO.md`](/TODO.md).
+If you'd like to find issues to work on, check `todo.md`.

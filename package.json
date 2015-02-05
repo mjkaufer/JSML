@@ -1,7 +1,7 @@
 {
-  "name": "JSMLC",
-  "version": "1.0.1",
-  "description": "JSON Markup Language Compiler",
+  "name": "JSML",
+  "version": "0.0.0",
+  "description": "JSON Markup Language",
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -16,16 +16,9 @@
     "JSML"
   ],
   "author": "Matthew Kaufer (@mjkaufer)",
-  "contributors" : [
-      "Philip Kaludercic (@phikal)"
-  ],
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/mjkaufer/JSML/issues"
   },
-  "homepage": "https://github.com/mjkaufer/JSML",
-  "bin": {
-      "jsmlc": "./bin/main.js"
-  }
-}
+  "homepage": "https://github.com/mjkaufer/JSML"
 }
