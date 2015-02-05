@@ -12,7 +12,7 @@ This isn't meant to overtake web design as we know it. It's more of a proof of c
 
 ## Use
 
-To compile a JSML (a `.jsml` file) into an HTML file, run `jsmlc -c [filename]`.
+To compile a JSML (a `.jsml` file) into an HTML file, run `jsml -c [filename]`.
 
 ## Examples & Syntax
 
