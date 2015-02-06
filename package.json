@@ -1,5 +1,5 @@
 {
-  "name": "JSML",
+  "name": "jsml",
   "version": "1.0.1",
   "description": "JSON Markup Language Compiler",
   "main": "main.js",
@@ -15,9 +15,9 @@
     "HTML",
     "JSML"
   ],
-  "author": "Matthew Kaufer (@mjkaufer)",
+  "author": "Matthew Kaufer <mjkaufer@gmail.com>",
   "contributors" : [
-      "Philip Kaludercic (@phikal)"
+      "Philip Kaludercic <philippija@gmail.com>"
   ],
   "license": "ISC",
   "bugs": {
@@ -25,6 +25,6 @@
   },
   "homepage": "https://github.com/mjkaufer/JSML",
   "bin": {
-      "jsmlc": "./bin/jsml"
+      "jsml": "./bin/jsml"
   }
 }
