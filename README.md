@@ -88,23 +88,17 @@ var name = "mjkaufer";
 
 Basically, any JavaScript can be run above the first `[` tag, or before the JSML array is initialized. Any JavaScript which *does not produce an output* can be run anywhere. For instance, `var name = "mjkaufer"` is ok to use wherever, but something like `console.log("Matthew")` is only ok before the JSML array is initialized.
 
-### Inline text
+### Simple Text
 
 ```HTML
-<div>
-	This is <strong>Bold.</strong>
-</div>
+<html>
+	This is nice
+</html>
 ```
 
 ```JavaScript
-var name = "mjkaufer";
-
 [
-	"This is This is",
-	{
-		tag: "strong",
-		text: "Bold."
-	}
+	"This is nice"
 ]
 ```
 
