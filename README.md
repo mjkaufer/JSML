@@ -42,12 +42,10 @@ the JSML would look like
 HTML:
 
 ```HTML
-<div>
-	<p id="info">Hello</p>
-	<p>
-		<b>World</b>
-	</p>
-</div>
+<p id="info">Hello</p>
+<p>
+	<b>World</b>
+</p>
 ```
 
 JSML:
@@ -91,9 +89,7 @@ Basically, any JavaScript can be run above the first `[` tag, or before the JSML
 ### Simple Text
 
 ```HTML
-<html>
-	This is nice
-</html>
+This is nice
 ```
 
 ```JavaScript
@@ -107,17 +103,13 @@ If you use a string instead of an object within an array, it will be directly in
 ### Short names
 
 ```HTML
-<div>
-	<ul>
-		<li>This is one paragraph.</li>
-	</ul>
-	<a href="google.com">And this is a link.</a>
-</div>
+<ul>
+	<li>This is one paragraph.</li>
+</ul>
+<a href="google.com">And this is a link.</a>
 ```
 
 ```JavaScript
-var name = "mjkaufer";
-
 [
 	{
 		t: "ul",
