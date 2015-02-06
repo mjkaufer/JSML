@@ -1,5 +1,5 @@
 {
-  "name": "jsml",
+  "name": "node-jsml",
   "version": "1.0.1",
   "description": "JSON Markup Language Compiler",
   "main": "main.js",
