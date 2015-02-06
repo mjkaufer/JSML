@@ -44,6 +44,8 @@ parser.on(2, function(val){//default input
 
 	var endIndex = Math.max(input.lastIndexOf(".jsml"), input.length)
 	output = input.substring(0, endIndex) + ".html";
+	if(process.argv.length <= 3)
+		compile(input);
 	// console.log("0", val)
 });
 
