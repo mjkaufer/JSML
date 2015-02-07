@@ -1,8 +1,6 @@
-# JSML
+# ![JSML](/jsml.png)
 
-*v1.0.0*
-
-JSON Markup Language Compiler, or JSML, is an investigation into the effectiveness of creating webpages in JSON.
+JSON Markup Language, or JSML, is an investigation into the effectiveness of creating webpages in JSON.
 
 ## Inspiration
 

@@ -1,7 +1,11 @@
 #!/usr/bin/env node
 
 var fs = require('fs'),
-	optparse = require('../lib/optparse');
+	optparse = require('../lib/optparse'),
+	pac = require('../package.json');
+
+
+String.prototype.isAString = true;
 
 var parser = new optparse.OptionParser([
 	['-h', '--help', 'Shows help screen'],
@@ -12,14 +16,14 @@ var parser = new optparse.OptionParser([
 var input, output;
 
 parser.on('help', function() {
-	console.log('Usage: jsmlc -c FILE [-O FILE]\n\n'+
-				'JSON Markup Language Compiler, or jsmlc is an investigation into the effectiveness of creating webpages in JSON.\n\n'+
-				'Arguments:\n'+
-				'\t-h\t--help\t\tThis page\n'+
-				'\t-O\t--output\tHTML file\n'+
-				'\t-c\t--compile\tJSML file\n\n'+
-				'Version 1.0.1, (c) 2015\n'+
-				'Source: https://github.com/mjkaufer/JSML/'
+	console.log('Usage: jsml -c FILE [-O FILE]\n'+
+				'JSON Markup Language, or jsml is an investigation into the effectiveness of creating webpages in JSON.\n\n'+
+				'Command Line Arguments:\n'+
+				'  -h  --help     This page\n'+
+				'  -O  --output   HTML file\n'+
+				'  -c  --compile  JSML file\n\n'+
+				'version '+pac.version+', (c) 2015\n'+
+				'Source: '+pac.homepage
 	);
 });
 
@@ -37,24 +41,18 @@ parser.on('compile', function(opt, val) {
 
 });
 
-parser.on(2, function(val){//default input
+parser.on(2, function(val){ //default input
 	input = val;
 
-
-
-	var endIndex = Math.max(input.lastIndexOf(".jsml"), input.length)
-	output = input.substring(0, endIndex) + ".html";
+	output = input.replace(/\.jsml$/g, "") + ".html"
 	if(process.argv.length <= 3)
 		compile(input);
-	// console.log("0", val)
 });
 
 parser.on(3, function(val){
-	output = val;
-	compile(input);
-	// console.log("1", val)
-})
-
+ 	output = val;
+ 	compile(input);
+});
 
 parser.on(function(opt) {
     console.log('Error - see `jsml --help`');
@@ -63,7 +61,7 @@ parser.on(function(opt) {
 parser.parse(process.argv);
 
 function compile(infile){
-	fs.readFile(infile, 'utf8', function(err, json) {
+	fs.readFile(infile || process.stdin, 'utf8', function(err, json) {
 		if (err) {
 			console.error(err);
 			process.exit(1);
@@ -79,7 +77,7 @@ function compile(infile){
 		else fs.writeFile(output, jsml, function(err) {
 			if (err) console.error(err);
 			else
-				console.log("Done compiling " + input + " - saved as " + output)
+				console.log("Done compiling " + input + " - saved as " + output);
 		});
 	});
 }
@@ -95,12 +93,8 @@ function handleArray(json, tabs) {
 	return body;
 }
 
-function isString(el){
-	return typeof el == 'string' || el instanceof String
-}
-
 function handleTag(json, tabs) {
-	if (!isString(json) && (!json.tag && !json.t)){
+	if (!json.isAString && (!json.tag && !json.t)){
 		console.error("Need a tag.");
 		process.exit(1);
 	}
@@ -108,28 +102,27 @@ function handleTag(json, tabs) {
 	// Tabs
 	var t = '\n'+(Array(tabs+1).join('\t'));
 
-	if (isString(json))
+	// If object is a string, it will be added to document as is
+	if (json.isAString)
 		return t + json;
-	//it will be what we concatenate to our elements to make it look all pretty & indented
 
+	// It will be what we concatenate to our elements to make it look all pretty & indented
 	var start = "<" + (json.tag || json.t);
-
-	if (json.attributes || !json.a) { // check if attributes are supplied
-		for(var a in json.attributes)
+	if (json.attributes || json.a) { // check if attributes are supplied
+		for (var a in json.attributes)
 			if (json.attributes[a])
 				start+=" "+a+"=\"" + json.attributes[a] + "\""; // add the attribute value
-		for(var a in json.a)
-			if (json.a[a])
-				start+=" "+a+"=\"" + json.a[a] + "\""; // add the attribute value
+		for (var b in json.a)
+			if (json.a[b])
+				start+=" "+b+"=\"" + json.a[b] + "\""; // add the attribute value
 	}
 	start+=">"; // append to the front
 
 	var end = "</" + (json.tag || json.t) + ">";
 
 	var children = "";
-	if (json.children || json.c) {//if there are indeed children
+	if (json.children || json.c) //if there are indeed children
 		children = handleArray((json.children || json.c), tabs)+t;
-	}
 
 	return t + start + (json.text || json.T || "") + children + end;
 }
