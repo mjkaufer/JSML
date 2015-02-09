@@ -109,12 +109,16 @@ function handleTag(json, tabs) {
 	// It will be what we concatenate to our elements to make it look all pretty & indented
 	var start = "<" + (json.tag || json.t);
 	if (json.attributes || json.a) { // check if attributes are supplied
-		for (var a in json.attributes)
-			if (json.attributes[a])
-				start+=" "+a+"=\"" + json.attributes[a] + "\""; // add the attribute value
-		for (var b in json.a)
-			if (json.a[b])
-				start+=" "+b+"=\"" + json.a[b] + "\""; // add the attribute value
+
+		if(json.attributes)
+			for (var key in json.attributes)
+				if (json.attributes[key])
+					start+=" "+key+"=\"" + json.attributes[key] + "\""; // add the attribute value
+		if(json.a)
+			for (var key in json.a)
+				if (json.a[key])
+					start+=" "+key+"=\"" + json.a[key] + "\""; // add the attribute value
+
 	}
 	start+=">"; // append to the front
 
