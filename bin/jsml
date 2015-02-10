@@ -2,7 +2,8 @@
 
 var fs = require('fs'),
 	optparse = require('../lib/optparse'),
-	pac = require('../package.json');
+	pac = require('../package.json'),
+	compile = require('./compile.js');
 
 
 String.prototype.isAString = true;
@@ -37,7 +38,7 @@ parser.on('compile', function(opt, val) {
 		process.exit(1);
 	}
 
-	compile(val);
+	outputJSML(val);
 
 });
 
@@ -46,12 +47,12 @@ parser.on(2, function(val){ //default input
 
 	output = input.replace(/\.jsml$/g, "") + ".html"
 	if(process.argv.length <= 3)
-		compile(input);
+		outputJSML(input);
 });
 
 parser.on(3, function(val){
  	output = val;
- 	compile(input);
+ 	outputJSML(input);
 });
 
 parser.on(function(opt) {
@@ -60,18 +61,14 @@ parser.on(function(opt) {
 
 parser.parse(process.argv);
 
-function compile(infile){
+function outputJSML(infile){
 	fs.readFile(infile || process.stdin, 'utf8', function(err, json) {
 		if (err) {
 			console.error(err);
 			process.exit(1);
 		}
 
-		// eval` is called so we don't need to require quotes around tags
-		json = eval(json);
-		jsml  = "<!DOCTYPE html>\n<html>";
-		jsml += handleArray(json, 0);
-		jsml += "\n</html>";
+		json = compile.toJSML(json);
 
 		if (!output) console.log(jsml);
 		else fs.writeFile(output, jsml, function(err) {
@@ -82,51 +79,3 @@ function compile(infile){
 	});
 }
 
-function handleArray(json, tabs) {
-	var body = "";
-
-	for (var ei in json) {
-		var element = json[ei];
-		body += handleTag(element, tabs+1);
-	}
-
-	return body;
-}
-
-function handleTag(json, tabs) {
-	if (!json.isAString && (!json.tag && !json.t)){
-		console.error("Need a tag.");
-		process.exit(1);
-	}
-
-	// Tabs
-	var t = '\n'+(Array(tabs+1).join('\t'));
-
-	// If object is a string, it will be added to document as is
-	if (json.isAString)
-		return t + json;
-
-	// It will be what we concatenate to our elements to make it look all pretty & indented
-	var start = "<" + (json.tag || json.t);
-	if (json.attributes || json.a) { // check if attributes are supplied
-
-		if(json.attributes)
-			for (var key in json.attributes)
-				if (json.attributes[key])
-					start+=" "+key+"=\"" + json.attributes[key] + "\""; // add the attribute value
-		if(json.a)
-			for (var key in json.a)
-				if (json.a[key])
-					start+=" "+key+"=\"" + json.a[key] + "\""; // add the attribute value
-
-	}
-	start+=">"; // append to the front
-
-	var end = "</" + (json.tag || json.t) + ">";
-
-	var children = "";
-	if (json.children || json.c) //if there are indeed children
-		children = handleArray((json.children || json.c), tabs)+t;
-
-	return t + start + (json.text || json.T || "") + children + end;
-}
