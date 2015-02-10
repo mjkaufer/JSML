@@ -22,7 +22,7 @@ To compile a JSML file to HTML, use the following code
 
 ```JavaScript
 
-jsml = require('node-jsml');
+var jsml = require('node-jsml');
 
 myJSML = [
 
