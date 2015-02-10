@@ -1,8 +1,10 @@
+String.prototype.isAString = true;
+
 function toJSML(json){
-		json = eval(json);
-		if(!Array.isArray(json))//if an array wasn't passed...
-			throw "JSML not an array!";
-		jsml  = "<!DOCTYPE html>\n<html>";
+		var json = eval(json);
+		// if(!Array.isArray(json))//if an array wasn't passed...
+		// 	throw "JSML not an array!";
+		var jsml = "<!DOCTYPE html>\n<html>";
 		jsml += handleArray(json, 0);
 		jsml += "\n</html>";
 
@@ -64,5 +66,7 @@ function handleTag(json, tabs) {
 }
 
 module.exports = {
-	toJSML: toJSML
+	"toJSML": function(arg){
+		return toJSML(arg);
+	}
 }

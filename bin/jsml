@@ -5,10 +5,6 @@ var fs = require('fs'),
 	pac = require('../package.json'),
 	compile = require('./compile.js');
 
-exports.toJSML = compile.toJSML;
-
-String.prototype.isAString = true;
-
 var parser = new optparse.OptionParser([
 	['-h', '--help', 'Shows help screen'],
 	['-O', '--output FILE', 'File output, no argument is stdout'],
@@ -69,7 +65,7 @@ function outputJSML(infile){
 			process.exit(1);
 		}
 
-		json = compile.toJSML(json);
+		jsml = compile.toJSML(json);
 
 		if (!output) console.log(jsml);
 		else fs.writeFile(output, jsml, function(err) {

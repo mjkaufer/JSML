@@ -1,5 +1,5 @@
-var jsml = require('./bin/jsml');
+var compile = require('./bin/compile.js');
 
 module.exports = {
-	toJSML: jsml.toJSML
+	toJSML: compile.toJSML
 }
