@@ -5,6 +5,7 @@ var fs = require('fs'),
 	pac = require('../package.json'),
 	compile = require('./compile.js');
 
+exports.toJSML = compile.toJSML;
 
 String.prototype.isAString = true;
 

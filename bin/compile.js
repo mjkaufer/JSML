@@ -1,5 +1,7 @@
 function toJSML(json){
 		json = eval(json);
+		if(!Array.isArray(json))//if an array wasn't passed...
+			throw "JSML not an array!";
 		jsml  = "<!DOCTYPE html>\n<html>";
 		jsml += handleArray(json, 0);
 		jsml += "\n</html>";

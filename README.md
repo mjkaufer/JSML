@@ -8,9 +8,35 @@ As JSML is on npm, you can install it easily with the command `npm install -g no
 
 ## Use
 
+### Through the Terminal
+
 To compile a JSML (a `.jsml` file) into an HTML file, run `jsml [filename]`.
 
 For more options, run `jsml --help`.
+
+### Through Your Program
+
+To include JSML, use `jsml = require('node-jsml');`
+
+To compile a JSML file to HTML, use the following code
+
+```JavaScript
+
+jsml = require('node-jsml');
+
+myJSML = [
+
+	{
+		t:"p",
+		T:"this works!"
+	}
+
+];
+
+output = jsml.toJSML(myJSML);
+```
+
+The following code will store your finished HTML file in output!
 
 ## Examples & Syntax
 
