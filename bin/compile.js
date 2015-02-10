@@ -21,6 +21,7 @@ function handleArray(json, tabs) {
 function handleTag(json, tabs) {
 	if (!json.isAString && (!json.tag && !json.t)){
 		console.error("Need a tag.");
+		console.log(json)
 		process.exit(1);
 	}
 
@@ -51,7 +52,11 @@ function handleTag(json, tabs) {
 
 	var children = "";
 	if (json.children || json.c) //if there are indeed children
-		children = handleArray((json.children || json.c), tabs)+t;
+		if(Array.isArray((json.children || json.c)))//if it's an array
+			children = handleArray((json.children || json.c), tabs)+t;
+		else//it's an json chunk
+			children = handleTag((json.children || json.c), tabs+1)+t;
+
 
 	return t + start + (json.text || json.T || "") + children + end;
 }
