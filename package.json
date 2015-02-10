@@ -1,6 +1,6 @@
 {
   "name": "node-jsml",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "JSON Markup Language Compiler",
   "main": "index.js",
   "scripts": {

@@ -65,7 +65,7 @@ function outputJSML(infile){
 			process.exit(1);
 		}
 
-		jsml = compile.toJSML(json);
+		var jsml = compile.toJSML(json);
 
 		if (!output) console.log(jsml);
 		else fs.writeFile(output, jsml, function(err) {
