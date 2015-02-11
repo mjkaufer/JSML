@@ -1,10 +1,16 @@
-# ![JSML](/jsml.png)
+### ![JSML](/jsml.png)
 
-JSON Markup Language, or JSML, is an investigation into the effectiveness of creating webpages in JSON.
+JSML (JSON Markup Language) is an investigation into the effectiveness of creating webpages in JSON.
+
+[![npm version](https://img.shields.io/npm/v/node-jsml.svg)](https://www.npmjs.com/package/node-jsml)
+[![license](https://img.shields.io/npm/l/express.svg)](https://www.npmjs.com/package/node-jsml)
+[![downloads](https://img.shields.io/npm/dm/node-jsml.svg)](https://www.npmjs.com/package/node-jsml)
 
 ## Installation
 
-As JSML is on npm, you can install it easily with the command `npm install -g node-jsml`. 
+As JSML is on npm, you can install it easily with the command `npm install -g node-jsml`.
+
+On some systems, superuser access might be required.
 
 ## Use
 
@@ -12,7 +18,7 @@ As JSML is on npm, you can install it easily with the command `npm install -g no
 
 To compile a JSML (a `.jsml` file) into an HTML file, run `jsml [filename]`.
 
-For more options, run `jsml --help`.
+If you want to output to stdout, use `-c` in front of the file, and `-O` to directly specify the output path.
 
 ### Through Your Program
 
@@ -25,152 +31,20 @@ To compile a JSML file to HTML, use the following code
 var jsml = require('node-jsml');
 
 myJSML = [
-
 	{
 		t:"p",
 		T:"this works!"
 	}
-
 ];
 
-output = jsml.toJSML(myJSML);
+output = jsml.parse(myJSML);
 ```
 
-The following code will store your finished HTML file in output!
+`parse` has an optional parameter, `eval`. If `true`, then `myJSML` (f.e. in this example) will be run though [eval](http://www.w3schools.com/jsref/jsref_eval.asp). This is helpful when reading `.jsml` files which don't have `"` around every tag.
 
-## Examples & Syntax
+## Syntax and Language
 
-Each JSON object either has a `children` object which defines children, attributes, and content, or simply a string which defines the tag's content.
-
-### Simple Example
-
-For a program that compiles to
-
-```HTML
-<p>JSML is cool</p>
-```
-
-the JSML would look like
-
-```JavaScript
-[
-	{
-		tag:"p",
-		text:"JSML is cool"
-	}
-]
-```
-
-### Nested Elements
-
-HTML:
-
-```HTML
-<p id="info">Hello</p>
-<p>
-	<b>World</b>
-</p>
-```
-
-JSML:
-
-```JavaScript
-[
-	{
-		tag:"p",
-		attributes:{
-			"id":"info"
-		},
-		text:"Hello"
-	},
-	{
-		tag:"p",
-		children:[
-			{
-				tag:"b",
-				text:"World"
-			}
-		]
-	}
-]
-```
-
-### Dynamic JSML
-
-```JavaScript
-var name = "mjkaufer";
-
-[
-	{
-		tag:"h1",
-		text:name + " - it works!!"
-	}
-]
-```
-
-Basically, any JavaScript can be run above the first `[` tag, or before the JSML array is initialized. Any JavaScript which *does not produce an output* can be run anywhere. For instance, `var name = "mjkaufer"` is ok to use wherever, but something like `console.log("Matthew")` is only ok before the JSML array is initialized.
-
-### Single Child
-
-If you have a single child, you don't need to bother creating an array for `c` or `children` - you can populate it with a single element instead.
-
-```JavaScript
-[
-	{
-		tag:"div",
-		children:{
-			tag:"p",
-			text:"Single child!"
-		}
-	}
-]
-```
-
-### Simple Text
-
-```HTML
-This is nice
-```
-
-```JavaScript
-[
-	"This is nice"
-]
-```
-
-If you use a string instead of an object within an array, it will be directly inserted into the parent.
-
-### Short names
-
-```HTML
-<ul>
-	<li>This is one paragraph.</li>
-</ul>
-<a href="google.com">And this is a link.</a>
-```
-
-```JavaScript
-[
-	{
-		t: "ul",
-		c: [
-			{
-				t: "li",
-				T: "This is one paragraph."
-			}
-		]
-	},
-	{
-		t: "a",
-		a: [
-			"href": "google.com"
-		],
-		T: "And this is a link."
-	}
-]
-```
-
-`t` is short for `tag`, `c` for `children`, `T` for `text` and `a` for `attributes`. If bother were to be specified, the longer one would be chosen.
+All the rules and tricks can be found in [LANG.md](/doc/LANG.md)
 
 ## Inspiration
 
@@ -183,3 +57,5 @@ This isn't meant to overtake web design as we know it. It's more of a proof of c
 If you have something very major to contribute, submit an issue first. Otherwise, for any small fixes, feel free to send a pull request.
 
 If you'd like to find issues to work on, check [`TODO.md`](/TODO.md).
+
+**Note:** The logo (svg source file) uses the font [monofur](http://www.dafont.com/monofur.font).

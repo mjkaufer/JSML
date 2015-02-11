@@ -1,5 +1,3 @@
-var compile = require('./bin/compile.js');
+var compile = require('./lib/common.js');
 
-module.exports = {
-	toJSML: compile.toJSML
-}
+module.exports.parse = compile.parse;

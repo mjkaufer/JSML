@@ -3,7 +3,7 @@
 var fs = require('fs'),
 	optparse = require('../lib/optparse'),
 	pac = require('../package.json'),
-	compile = require('./compile.js');
+	common = require('../lib/common.js');
 
 var parser = new optparse.OptionParser([
 	['-h', '--help', 'Shows help screen'],
@@ -65,7 +65,7 @@ function outputJSML(infile){
 			process.exit(1);
 		}
 
-		var jsml = compile.toJSML(json);
+		var jsml = common.parse(json, true);
 
 		if (!output) console.log(jsml);
 		else fs.writeFile(output, jsml, function(err) {
@@ -75,4 +75,3 @@ function outputJSML(infile){
 		});
 	});
 }
-
