@@ -1,7 +1,8 @@
 {
   "name": "node-jsml",
-  "version": "1.0.4",
+  "version": "1.0.8",
   "description": "JSON Markup Language Compiler",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -25,5 +26,11 @@
   "homepage": "https://github.com/mjkaufer/JSML",
   "bin": {
       "jsml": "./bin/jsml"
-  }
+  },
+  "files": [
+    "README.md",
+    "bin/",
+    "lib/",
+    "index.js"
+  ]
 }

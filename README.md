@@ -2,19 +2,45 @@
 
 JSON Markup Language, or JSML, is an investigation into the effectiveness of creating webpages in JSON.
 
-## Inspiration
+## Installation
 
-When using APIs, one lets out a groan when if they see the API outputs data in XML format. JSON is expected, nowadays, when using an API. Nobody has this problem when writing HTML, however. Perhaps this is because writing a webpage in XML format is better than writing it in JSON. But, until now, there has been no way to tell. And thus, JSML was born.
-
-This isn't meant to overtake web design as we know it. It's more of a proof of concept. However, JavaScript code can actually be executed within the JSML file, which is kind of neat. One could make counters, dynamic variables, etc. The possibilities are unexplored and endless!
+As JSML is on npm, you can install it easily with the command `npm install -g node-jsml`. 
 
 ## Use
 
-To compile a JSML (a `.jsml` file) into an HTML file, run `jsml -c [filename]`.
+### Through the Terminal
+
+To compile a JSML (a `.jsml` file) into an HTML file, run `jsml [filename]`.
+
+For more options, run `jsml --help`.
+
+### Through Your Program
+
+To include JSML, use `jsml = require('node-jsml');`
+
+To compile a JSML file to HTML, use the following code
+
+```JavaScript
+
+var jsml = require('node-jsml');
+
+myJSML = [
+
+	{
+		t:"p",
+		T:"this works!"
+	}
+
+];
+
+output = jsml.toJSML(myJSML);
+```
+
+The following code will store your finished HTML file in output!
 
 ## Examples & Syntax
 
-Each JSON object either has a child object which defines children, attributes, and content, or simply a string which defines the tag's content.
+Each JSON object either has a `children` object which defines children, attributes, and content, or simply a string which defines the tag's content.
 
 ### Simple Example
 
@@ -84,6 +110,22 @@ var name = "mjkaufer";
 
 Basically, any JavaScript can be run above the first `[` tag, or before the JSML array is initialized. Any JavaScript which *does not produce an output* can be run anywhere. For instance, `var name = "mjkaufer"` is ok to use wherever, but something like `console.log("Matthew")` is only ok before the JSML array is initialized.
 
+### Single Child
+
+If you have a single child, you don't need to bother creating an array for `c` or `children` - you can populate it with a single element instead.
+
+```JavaScript
+[
+	{
+		tag:"div",
+		children:{
+			tag:"p",
+			text:"Single child!"
+		}
+	}
+]
+```
+
 ### Simple Text
 
 ```HTML
@@ -129,6 +171,12 @@ If you use a string instead of an object within an array, it will be directly in
 ```
 
 `t` is short for `tag`, `c` for `children`, `T` for `text` and `a` for `attributes`. If bother were to be specified, the longer one would be chosen.
+
+## Inspiration
+
+When using APIs, one lets out a groan when if they see the API outputs data in XML format. JSON is expected, nowadays, when using an API. Nobody has this problem when writing HTML, however. Perhaps this is because writing a webpage in XML format is better than writing it in JSON. But, until now, there has been no way to tell. And thus, JSML was born.
+
+This isn't meant to overtake web design as we know it. It's more of a proof of concept. However, JavaScript code can actually be executed within the JSML file, which is kind of neat. One could make counters, dynamic variables, etc. The possibilities are unexplored and endless!
 
 ## Contributing
 

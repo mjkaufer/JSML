@@ -2,6 +2,14 @@
 
 ignore
 
+# node stuff
+
+node_modules
+
+# JSML tarball
+
+node-jsml-*.tgz
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
