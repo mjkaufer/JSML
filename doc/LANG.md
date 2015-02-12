@@ -78,29 +78,7 @@ var name = "mjkaufer";
 
 Basically, any JavaScript can be run above the first `[` tag, or before the JSML array is initialized. Any JavaScript which *does not produce an output* can be run anywhere. For instance, `var name = "mjkaufer"` is ok to use wherever, but something like `console.log("Matthew")` is only ok before the JSML array is initialized.
 
-Alternatively `eval` can be used, like seen in this example:
-
-```JavaScript
-[
-    {
-        tag: "b",
-        eval: "4 + 5"
-    }
-]
-```
-
-turning into:
-
-```HTML
-9
-```
-
-`eval` can contain any kind of JavaScript statement, all the compiler does is send it through the [eval](http://www.w3schools.com/jsref/jsref_eval.asp) function, and places it instead of `text`. If `text` and `eval` are secified, `eval` will be preferred.
-
-**Example files:**
-
-* [Dynamic JSML](/examples/demo_js.jsml)
-* [Evaluation](/examples/demo_eval.jsml)
+**Example file:** [Dynamic JSML](/examples/demo_js.jsml)
 
 ### Single Child
 
@@ -172,6 +150,6 @@ will turn into
 
 ### Load Files into JSML
 
-with the `file` tag, a file can be specified, relative to the working directory, and will be inserted instead of `text` or `eval`. `file` has the highest of all content types, and if specified will always inserted.
+with the `file` tag, a file can be specified, relative to the working directory, and will be inserted instead of `text`.
 
 **Example file:** [Read File](/examples/demo_file.jsml)
