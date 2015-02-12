@@ -3,7 +3,7 @@
 JSML (JSON Markup Language) is an investigation into the effectiveness of creating webpages in JSON.
 
 [![npm version](https://img.shields.io/npm/v/node-jsml.svg)](https://www.npmjs.com/package/node-jsml)
-[![license](https://img.shields.io/npm/l/express.svg)](https://www.npmjs.com/package/node-jsml)
+[![license](https://img.shields.io/npm/l/node-jsml.svg)](https://www.npmjs.com/package/node-jsml)
 [![downloads](https://img.shields.io/npm/dm/node-jsml.svg)](https://www.npmjs.com/package/node-jsml)
 
 ## Installation
