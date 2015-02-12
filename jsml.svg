@@ -16,7 +16,9 @@
    version="1.1"
    sodipodi:docname="jsml.svg"
    inkscape:export-xdpi="90"
-   inkscape:export-ydpi="90">
+   inkscape:export-ydpi="90"
+   inkscape:version="0.91 r13725"
+   inkscape:export-filename="/home/philip_arch/Code/Git/JSML/jsml.png">
   <title
      id="title4226">JSML Logo</title>
   <defs
@@ -28,9 +30,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2.8"
-     inkscape:cx="153.63178"
-     inkscape:cy="51.251369"
+     inkscape:zoom="1.979899"
+     inkscape:cx="-119.54523"
+     inkscape:cy="40.175342"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -87,27 +89,27 @@
     <flowRoot
        xml:space="preserve"
        id="flowRoot4136"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:50px;line-height:92.00000167%;font-family:'monofur for Powerline';-inkscape-font-specification:'monofur for Powerline';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1.02542889;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       transform="matrix(2.9400371,0,0,2.9916864,1.5408831,899.52686)"><flowRegion
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:50.00001144px;line-height:92.00000167%;font-family:monofur;-inkscape-font-specification:'monofur, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1.02542889;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       transform="matrix(2.9400371,0,0,2.9916864,1.5414927,899.52718)"><flowRegion
          id="flowRegion4138"><rect
            id="rect4140"
            width="101.89913"
            height="51.572109"
            x="0.50507629"
            y="-0.39722484"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:50px;line-height:92.00000167%;font-family:'monofur for Powerline';-inkscape-font-specification:'monofur for Powerline';fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1.02542889;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" /></flowRegion><flowPara
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:50.00001144px;line-height:92.00000167%;font-family:monofur;-inkscape-font-specification:'monofur, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1.02542889;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" /></flowRegion><flowPara
          id="flowPara4142"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:50.00021744px;line-height:92.00000167%;font-family:'monofur for Powerline';-inkscape-font-specification:'monofur for Powerline, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1.02542889;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">JSML</flowPara></flowRoot>    <text
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:50.00001144px;line-height:92.00000167%;font-family:monofur;-inkscape-font-specification:'monofur, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1.02542889;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">JSML</flowPara></flowRoot>    <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:44.10069275px;line-height:50%;font-family:Inconsolata;-inkscape-font-specification:'Inconsolata, Medium';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       x="84.536575"
-       y="1034.5139"
+       x="86.05658"
+       y="1036.0343"
        id="text4144"
        sodipodi:linespacing="50%"><tspan
          sodipodi:role="line"
          id="tspan4146"
-         x="84.536575"
-         y="1034.5139"
+         x="86.05658"
+         y="1036.0343"
          style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:20.90800858px;line-height:50%;font-family:Inconsolata;-inkscape-font-specification:'Inconsolata, Medium';text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none">JSON Markup Language</tspan></text>
   </g>
 </svg>

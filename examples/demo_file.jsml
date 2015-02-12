@@ -1,0 +1,7 @@
+[
+    "The following text has been read from a file...",
+    {
+        "tag" : "code",
+        "file" : "examples/lorem.txt"
+    }
+]
