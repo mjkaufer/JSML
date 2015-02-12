@@ -13,7 +13,7 @@ var parser = new optparse.OptionParser([
 
 var input, output;
 
-parser.on('help', function() {
+function showHelp(){
 	console.log('Usage: jsml -c FILE [-O FILE]\n'+
 				'JSON Markup Language, or jsml is an investigation into the effectiveness of creating webpages in JSON.\n\n'+
 				'Command Line Arguments:\n'+
@@ -23,6 +23,13 @@ parser.on('help', function() {
 				'version '+pac.version+', (c) 2015\n'+
 				'Source: '+pac.homepage
 	);
+}
+
+if(process.argv.length == 2)//not enough arguments
+	showHelp();
+
+parser.on('help', function() {
+	showHelp();
 });
 
 parser.on('output', function(opt, val) {
@@ -40,6 +47,7 @@ parser.on('compile', function(opt, val) {
 });
 
 parser.on(2, function(val){ //default input
+
 	input = val;
 
 	output = input.replace(/\.jsml$/g, "") + ".html"
