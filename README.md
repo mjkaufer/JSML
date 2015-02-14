@@ -56,6 +56,6 @@ This isn't meant to overtake web design as we know it. It's more of a proof of c
 
 If you have something very major to contribute, submit an issue first. Otherwise, for any small fixes, feel free to send a pull request.
 
-If you'd like to find issues to work on, check [`TODO.md`](/TODO.md).
+If you'd like to find issues to work on, check [`TODO.md`](https://github.com/mjkaufer/JSML/blob/master/doc/TODO.md).
 
 **Note:** The logo (svg source file) uses the font [monofur](http://www.dafont.com/monofur.font).
