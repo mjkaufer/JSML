@@ -52,6 +52,10 @@ When using APIs, one lets out a groan when if they see the API outputs data in X
 
 This isn't meant to overtake web design as we know it. It's more of a proof of concept. However, JavaScript code can actually be executed within the JSML file, which is kind of neat. One could make counters, dynamic variables, etc. The possibilities are unexplored and endless!
 
+## Easy Coding
+
+There is a Sublime Text 3 plugin I created which makes writing JSML code a lot faster. You can see it [here](https://github.com/mjkaufer/JSML-Formatter). It should be added to Sublime's package control sometime soon.
+
 ## Contributing
 
 If you have something very major to contribute, submit an issue first. Otherwise, for any small fixes, feel free to send a pull request.
