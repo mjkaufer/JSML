@@ -54,7 +54,7 @@ This isn't meant to overtake web design as we know it. It's more of a proof of c
 
 ## Easy Coding
 
-There is a Sublime Text 3 plugin I created which makes writing JSML code a lot faster. You can see it [here](https://github.com/mjkaufer/JSML-Formatter). It should be added to Sublime's package control sometime soon.
+There is a Sublime Text 3 plugin I created which makes writing JSML code a lot faster. You can see it [here](https://github.com/mjkaufer/JSML-Formatter). You can find it in sublime's package control by searching for `JSML Formatter`.
 
 ## Contributing
 
