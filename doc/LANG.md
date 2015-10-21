@@ -144,7 +144,7 @@ will turn into
 <a href="google.com">And this is a link.</a>
 ```
 
-`t` is short for `tag`, `c` for `children`, `T` for `text` and `a` for `attributes`. If bother were to be specified, the longer one would be chosen.
+`t` is short for `tag`, `c` for `children`, `T` for `text` and `a` for `attributes`. If both were to be specified, the longer one would be chosen.
 
 **Example file:** [Short tags](/examples/demo_js.jsml)
 
